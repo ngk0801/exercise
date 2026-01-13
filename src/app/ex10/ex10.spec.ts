@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Ex10 } from './ex10';
+import { Ex10Component } from './ex10';
 
 describe('Ex10', () => {
-  let component: Ex10;
-  let fixture: ComponentFixture<Ex10>;
+  let component: Ex10Component;
+  let fixture: ComponentFixture<Ex10Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Ex10]
+      imports: [Ex10Component]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(Ex10);
+    fixture = TestBed.createComponent(Ex10Component);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

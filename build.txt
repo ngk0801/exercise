@@ -1,0 +1,2 @@
+Application bundle generation failed. [1.267 seconds] - 2026-01-13T14:14:12.296Z
+

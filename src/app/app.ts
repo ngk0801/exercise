@@ -1,11 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Ex10Component } from './ex10/ex10';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [Ex10Component],
   templateUrl: './app.html',
-  standalone: false,
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('exercise');
-}
+export class AppComponent { }

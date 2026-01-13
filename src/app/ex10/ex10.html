@@ -1,1 +1,49 @@
-<p>ex10 works!</p>
+<div class="container" style="width: 500px; margin: 20px auto; border: 1px solid #ccc;">
+    <h3 style="text-align: center; color: blue; margin: 10px 0;">Chuyển đổi Dương lịch thành Âm lịch</h3>
+
+    <!-- Upper Part: Inputs -->
+    <div style="text-align: center; padding: 10px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+        Ngày
+        <select class="form-select" [(ngModel)]="selectedDay">
+            <option *ngFor="let d of days" [ngValue]="d">{{d}}</option>
+        </select>
+        Tháng
+        <select class="form-select" [(ngModel)]="selectedMonth">
+            <option *ngFor="let m of months" [ngValue]="m">{{m}}</option>
+        </select>
+        Năm
+        <select class="form-select" [(ngModel)]="selectedYear">
+            <option *ngFor="let y of years" [ngValue]="y">{{y}}</option>
+        </select>
+        <button (click)="convert()">Chuyển đổi</button>
+    </div>
+
+    <!-- Lower Part: Result -->
+    <div *ngIf="lunarResult">
+        <h3 style="text-align: center; color: blue; margin: 10px 0;">Âm Lịch</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 5px;">Thứ trong tuần</td>
+                    <td style="border: 1px solid #ccc; padding: 5px; color: brown;">{{lunarResult.dayOfWeek}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 5px;">Ngày tháng năm âm</td>
+                    <td style="border: 1px solid #ccc; padding: 5px; color: brown;">{{lunarResult.lunarDate}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 5px;">Năm</td>
+                    <td style="border: 1px solid #ccc; padding: 5px; color: brown;">{{lunarResult.year}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 5px;">Tháng</td>
+                    <td style="border: 1px solid #ccc; padding: 5px; color: brown;">{{lunarResult.month}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 5px;">Ngày</td>
+                    <td style="border: 1px solid #ccc; padding: 5px; color: brown;">{{lunarResult.day}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
