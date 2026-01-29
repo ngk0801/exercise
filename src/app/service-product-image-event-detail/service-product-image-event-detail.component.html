@@ -1,0 +1,22 @@
+<div class="card" *ngIf="selectedProduct">
+  <div style="text-align: left; margin-bottom: 10px;">
+    <button (click)="goBack()">Go Back</button>
+  </div>
+
+  <div class="product-info-grid">
+    <div class="label">ID:</div>
+    <div class="value">{{selectedProduct.ProductId}}</div>
+
+    <div class="label">Name:</div>
+    <div class="value">{{selectedProduct.ProductName}}</div>
+
+    <div class="label">Price:</div>
+    <div class="value">{{selectedProduct.Price}}</div>
+  </div>
+
+  <img [src]="selectedProduct.Image" [alt]="selectedProduct.ProductName">
+</div>
+<div *ngIf="!selectedProduct">
+  <p>Product not found. Searched ID: {{ searchedId }}</p>
+  <button (click)="goBack()">Go Back</button>
+</div>

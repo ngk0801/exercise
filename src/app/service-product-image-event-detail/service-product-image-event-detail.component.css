@@ -1,0 +1,35 @@
+.card {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 15px;
+  width: 200px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  /* Ensure padding doesn't affect width */
+}
+
+.product-info-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  /* Fixed width for labels, rest for value */
+  text-align: left;
+  margin-bottom: 15px;
+  row-gap: 5px;
+}
+
+.label {
+  font-weight: normal;
+}
+
+button {
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+img {
+  max-width: 120px;
+  /* Adjusted to fit nicely in 200px card */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

@@ -1,0 +1,32 @@
+.group-block {
+    margin-bottom: 20px;
+    width: 600px;
+    border: 1px solid #ccc;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.group-title {
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+.customer-table td {
+    height: 100px;
+    /* Force height for image alignment */
+}
+
+img {
+    display: block;
+}

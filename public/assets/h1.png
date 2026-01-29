@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" width="100" height="150">
+  <!-- Coca bottle -->
+  <rect x="35" y="20" width="30" height="80" fill="#DC143C" rx="5"/>
+  <ellipse cx="50" cy="20" rx="15" ry="8" fill="#8B0000"/>
+  <path d="M 40 25 L 45 35 L 55 35 L 60 25" fill="#FFFFFF"/>
+  <text x="50" y="65" text-anchor="middle" font-size="8" fill="white" font-weight="bold">Coca</text>
+  <rect x="30" y="100" width="40" height="40" fill="#90EE90" rx="3"/>
+  <text x="50" y="130" text-anchor="middle" font-size="10" fill="#333">$100</text>
+</svg>

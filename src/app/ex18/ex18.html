@@ -1,0 +1,26 @@
+<div *ngFor="let group of customers" class="group-block">
+    <table class="group-header-table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>#</th>
+        </tr>
+        <tr>
+            <td colspan="5" class="group-title">{{group.CustomerTypeId}} - {{group.CustomterTypeName}}</td>
+        </tr>
+    </table>
+
+    <table class="customer-table">
+        <tr *ngFor="let cus of group.Customers">
+            <td>{{cus.Id}}</td>
+            <td>{{cus.Name}}</td>
+            <td>{{cus.Email}}</td>
+            <td>{{cus.Age}}</td>
+            <td>
+                <img [src]="cus.Image" alt="avatar" style="width: 80px; height: auto;">
+            </td>
+        </tr>
+    </table>
+</div>
