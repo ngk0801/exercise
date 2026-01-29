@@ -1,0 +1,24 @@
+.ex19-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.ex19-section {
+  margin-bottom: 40px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ex19-section h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.ex13-wrapper,
+.ex18-wrapper {
+  margin-top: 15px;
+}

@@ -1,26 +1,37 @@
-<div *ngFor="let group of customers" class="group-block">
-    <table class="group-header-table">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>#</th>
-        </tr>
-        <tr>
-            <td colspan="5" class="group-title">{{group.CustomerTypeId}} - {{group.CustomterTypeName}}</td>
-        </tr>
-    </table>
+<!-- Main Data Display -->
+<div *ngFor="let group of customers" class="group-block" style="margin-bottom: 20px;">
+    <!-- Combined Table for Header and Content to match screenshot style -->
+    <table border="1" style="width: 100%; border-collapse: collapse; border: 1px solid #999;">
+        <!-- Header Column -->
+        <thead>
+            <tr style="background: #f0f0f0; font-weight: bold; text-align: center;">
+                <td style="width: 10%;">Id</td>
+                <td style="width: 20%;">Name</td>
+                <td style="width: 25%;">Email</td>
+                <td style="width: 10%;">Age</td>
+                <td style="width: 35%;">Image (#)</td>
+            </tr>
+        </thead>
 
-    <table class="customer-table">
-        <tr *ngFor="let cus of group.Customers">
-            <td>{{cus.Id}}</td>
-            <td>{{cus.Name}}</td>
-            <td>{{cus.Email}}</td>
-            <td>{{cus.Age}}</td>
-            <td>
-                <img [src]="cus.Image" alt="avatar" style="width: 80px; height: auto;">
-            </td>
-        </tr>
+        <tbody>
+            <!-- Group Title Row -->
+            <tr>
+                <td colspan="5"
+                    style="background: #ffffff; font-weight: bold; padding: 5px; text-align: left; border-top: 2px solid #999;">
+                    {{group.CustomerTypeId}} - {{group.CustomterTypeName}}
+                </td>
+            </tr>
+
+            <!-- Customer Rows -->
+            <tr *ngFor="let cus of group.Customers">
+                <td style="text-align: center; padding: 10px;">{{cus.Id}}</td>
+                <td style="padding: 10px;">{{cus.Name}}</td>
+                <td style="padding: 10px;">{{cus.Email}}</td>
+                <td style="text-align: center; padding: 10px;">{{cus.Age}}</td>
+                <td style="text-align: center; padding: 10px;">
+                    <img [src]="cus.Image" alt="avatar" style="width: 100px; height: auto; border: 1px solid #ccc;">
+                </td>
+            </tr>
+        </tbody>
     </table>
 </div>

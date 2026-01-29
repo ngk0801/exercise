@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-
-import { OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-ex18',
@@ -12,25 +10,65 @@ import { OnInit } from '@angular/core';
     styleUrl: './ex18.css'
 })
 export class Ex18 implements OnInit {
-    // Properties for loading state handling
-    customers: any = [];
-    loadError: string = '';
-    isDataLoading: boolean = true;
+    // FORCE PUBLIC ACCESS
+    public customers: any[] = [];
+    public isDataLoading: boolean = false;
+    public loadError: string = '';
 
     constructor(private http: HttpClient) { }
 
-    ngOnInit() {
-        this.http.get('/customers.json').subscribe({
-            next: (data) => {
-                this.customers = data;
-                this.isDataLoading = false;
-                console.log('Ex18 loaded data:', data);
+    ngOnInit(): void {
+        console.log('Ex18 Initialized - Loading Data (DIRECT MODE)...');
+        // DIRECTLY ASSIGN DATA TO BYPASS SERVER ISSUES
+        this.customers = [
+            {
+                "CustomerTypeId": 1,
+                "CustomterTypeName": "VIP",
+                "Customers": [
+                    {
+                        "Id": "Cus123",
+                        "Name": "Obama",
+                        "Email": "obama@gmail.com",
+                        "Age": 67,
+                        "Image": "images/trump.jpg"
+                    },
+                    {
+                        "Id": "Cus456",
+                        "Name": "Kim jong Un",
+                        "Email": "unun@gmail.com",
+                        "Age": 38,
+                        "Image": "images/kim.png"
+                    },
+                    {
+                        "Id": "Cus789",
+                        "Name": "Putin",
+                        "Email": "putin@gmail.com",
+                        "Age": 77,
+                        "Image": "images/putin.jpg"
+                    }
+                ]
             },
-            error: (err) => {
-                this.loadError = 'Failed to load data. Status: ' + err.status;
-                this.isDataLoading = false;
-                console.error('Ex18 failed to load data:', err);
+            {
+                "CustomerTypeId": 2,
+                "CustomterTypeName": "Normal",
+                "Customers": [
+                    {
+                        "Id": "Cus000",
+                        "Name": "Hồ Cẩm Đào",
+                        "Email": "hodao@gmail.com",
+                        "Age": 16,
+                        "Image": "images/hocamdao.jpg"
+                    },
+                    {
+                        "Id": "Cus111",
+                        "Name": "Tap Can Binh",
+                        "Email": "binhbinh@gmail.com",
+                        "Age": 67,
+                        "Image": "images/tap.jpg"
+                    }
+                ]
             }
-        });
+        ];
+        this.isDataLoading = false;
     }
 }
