@@ -1,0 +1,44 @@
+<div class="container mt-4 border p-4" style="max-width: 500px;">
+    <h3 class="text-center mb-4">Đăng ký khóa học</h3>
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label>Tên:</label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="mb-3">
+            <label>Email:</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3">
+            <label>Điện thoại:</label>
+            <input type="number" class="form-control" formControlName="phone">
+        </div>
+        <div class="mb-3">
+            <label>Chọn khóa học:</label>
+            <select class="form-select" formControlName="course">
+                <option value="Ruby">Ruby</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="me-3">Chọn ca học:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="sang" formControlName="time">
+                <label class="form-check-label">Sáng</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="toi" formControlName="time">
+                <label class="form-check-label">Tối</label>
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" formControlName="agree">
+            <label class="form-check-label">Đồng ý với điều khoản</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="mt-3 text-break">
+        {{jsonOutput}}
+    </div>
+</div>
