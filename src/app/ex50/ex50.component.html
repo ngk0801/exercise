@@ -1,0 +1,38 @@
+<h2>Product Management</h2>
+<button [routerLink]="['/ex50/add']">Create New</button>
+<p style="color:red" *ngIf="errMessage">{{errMessage}}</p>
+<p *ngIf="!books && !errMessage">Loading...</p>
+<p *ngIf="books && books.length === 0">No books found.</p>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Tensach</td>
+            <td>Giaban</td>
+            <td>Mota</td>
+            <td>Anhbia</td>
+            <td>Ngaycapnhat</td>
+            <td>Soluongton</td>
+            <td>MaCD</td>
+            <td>MaNXB</td>
+            <td>Actions</td>
+        </tr>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.BookName}}</td>
+            <td>{{book.Price}}</td>
+            <td>{{book.Description}}</td>
+            <td>
+                <img [src]="getImageUrl(book.Image)" (error)="handleImageError($event)" width="50px" height="50px">
+            </td>
+            <td>{{book.UpdateDate}}</td>
+            <td>{{book.Quantity}}</td>
+            <td>{{book.TopicId}}</td>
+            <td>{{book.PublisherId}}</td>
+            <td>
+                <button [routerLink]="['/ex50/detail', book.BookId]">Details</button> |
+                <button [routerLink]="['/ex50/edit', book.BookId]">Edit</button> |
+                <button (click)="deleteBook(book.BookId)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

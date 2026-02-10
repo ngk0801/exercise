@@ -1,0 +1,14 @@
+<h2>Book Details</h2>
+<p style="color:red">{{errMessage}}</p>
+<div *ngIf="book">
+    <p><strong>ID:</strong> {{book.BookId}}</p>
+    <p><strong>Name (Tensach):</strong> {{book.BookName}}</p>
+    <p><strong>Price (Giaban):</strong> {{book.Price}}</p>
+    <p><strong>Description (Mota):</strong> {{book.Description}}</p>
+    <p><strong>Image (Anhbia):</strong> <img [src]="getImageUrl(book.Image)" width="200px"></p>
+    <p><strong>Update Date (Ngaycapnhat):</strong> {{book.UpdateDate}}</p>
+    <p><strong>Quantity (Soluongton):</strong> {{book.Quantity}}</p>
+    <p><strong>Topic ID (MaCD):</strong> {{book.TopicId}}</p>
+    <p><strong>Publisher ID (MaNXB):</strong> {{book.PublisherId}}</p>
+    <button [routerLink]="['/ex50']">Back to List</button>
+</div>

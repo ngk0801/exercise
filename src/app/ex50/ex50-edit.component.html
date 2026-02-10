@@ -1,0 +1,43 @@
+<h2>Edit Book</h2>
+<p style="color:red">{{errMessage}}</p>
+<form [formGroup]="bookForm" (ngSubmit)="submitData()">
+    <div>
+        <label>Book ID:</label>
+        <input type="text" formControlName="BookId" readonly>
+    </div>
+    <div>
+        <label>Book Name (Tensach):</label>
+        <input type="text" formControlName="BookName">
+    </div>
+    <div>
+        <label>Price (Giaban):</label>
+        <input type="number" formControlName="Price">
+    </div>
+    <div>
+        <label>Description (Mota):</label>
+        <textarea formControlName="Description"></textarea>
+    </div>
+    <div>
+        <label>Update Date (Ngaycapnhat):</label>
+        <input type="date" formControlName="UpdateDate">
+    </div>
+    <div>
+        <label>Quantity (Soluongton):</label>
+        <input type="number" formControlName="Quantity">
+    </div>
+    <div>
+        <label>Topic ID (MaCD):</label>
+        <input type="text" formControlName="TopicId">
+    </div>
+    <div>
+        <label>Publisher ID (MaNXB):</label>
+        <input type="text" formControlName="PublisherId">
+    </div>
+    <div>
+        <label>Image:</label>
+        <app-file-upload (onUploadFinished)="onFileUploaded($event)"></app-file-upload>
+        <input type="hidden" formControlName="Image">
+        <small *ngIf="bookForm.controls['Image'].value">Current file: {{bookForm.controls['Image'].value}}</small>
+    </div>
+    <button type="submit" [disabled]="!bookForm.valid">Update</button>
+</form>
