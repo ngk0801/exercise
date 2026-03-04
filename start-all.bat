@@ -1,0 +1,6 @@
+@echo off
+echo Starting My Server (Backend)...
+start cmd /k "cd /d d:\K234111E\my-server && node index.js"
+echo Starting Angular App (Frontend)...
+start cmd /k "cd /d d:\K234111E\exercise && ng serve"
+echo All servers started!

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { BookAPIService } from '../book-api.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-books',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './books.component.html',
     styleUrls: ['./books.component.css']
 })
@@ -32,5 +33,14 @@ export class BooksComponent {
 
     retryLoad() {
         this.loadBooks();
+    }
+
+    deleteBook(id: string) {
+        if (confirm('Are you sure you want to delete this book?')) {
+            this._service.deleteBook(id).subscribe({
+                next: () => { this.loadBooks(); },
+                error: (err) => { this.errMessage = err; }
+            });
+        }
     }
 }

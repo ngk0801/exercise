@@ -14,7 +14,7 @@
             <td>Soluongton</td>
             <td>MaCD</td>
             <td>MaNXB</td>
-            <td>Actions</td>
+            <td>Action:</td>
         </tr>
     <tbody>
         <tr *ngFor="let book of books">
@@ -22,16 +22,16 @@
             <td>{{book.Price}}</td>
             <td>{{book.Description}}</td>
             <td>
-                <img [src]="getImageUrl(book.Image)" (error)="handleImageError($event)" width="50px" height="50px">
+                <img [src]="getImageUrl(book.Image)" (error)="handleImageError($event)"
+                     width="50" height="50" style="object-fit: contain;">
             </td>
             <td>{{book.UpdateDate}}</td>
             <td>{{book.Quantity}}</td>
             <td>{{book.TopicId}}</td>
             <td>{{book.PublisherId}}</td>
             <td>
-                <button [routerLink]="['/ex50/detail', book.BookId]">Details</button> |
-                <button [routerLink]="['/ex50/edit', book.BookId]">Edit</button> |
-                <button (click)="deleteBook(book.BookId)">Delete</button>
+                <a [routerLink]="['/ex50/edit', book.BookId]">Update</a> | <a (click)="deleteBook(book.BookId)"
+                    style="cursor:pointer">Delete</a>
             </td>
         </tr>
     </tbody>

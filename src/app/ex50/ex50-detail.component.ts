@@ -32,12 +32,14 @@ export class Ex50DetailComponent {
     }
 
     getImageUrl(image: string): string {
-        if (!image) return 'assets/book_images/default.jpg';
+        // Nếu không có ảnh, dùng ảnh mặc định trực tuyến
+        if (!image) return 'https://placehold.co/200x200?text=No+Image';
         const defaultImages = ['b1.jpg', 'b2.jpg', 'b3.jpg', 'b4.jpg', 'b5.jpg'];
         if (defaultImages.includes(image)) {
             return 'assets/book_images/' + image;
         } else {
-            return 'http://127.0.0.1:3000/image/' + image;
+            // Ảnh upload: dùng server my-server (3000)
+            return 'http://localhost:3000/image/' + image;
         }
     }
 }

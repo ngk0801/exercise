@@ -34,10 +34,12 @@ export class FileUploadComponent {
             const formData = new FormData();
             formData.append("image", file);
 
-            // Use absolute URL to avoid proxy issues
-            const upload$ = this.http.post<any>("http://localhost:3000/upload", formData, {
+            // Dùng đường dẫn tuyệt đối thẳng tới my-server (3000) bỏ qua proxy
+            // Server trả status 200 nhưng không có JSON body, nên dùng responseType 'text' để tránh lỗi parse
+            const upload$ = this.http.post("http://localhost:3000/upload", formData, {
                 reportProgress: true,
-                observe: 'events'
+                observe: 'events',
+                responseType: 'text'
             }).pipe(
                 finalize(() => this.reset())
             );
@@ -47,8 +49,8 @@ export class FileUploadComponent {
                     if (event.type === HttpEventType.UploadProgress) {
                         this.uploadProgress = Math.round(100 * (event.loaded / event.total!));
                     } else if (event.type === HttpEventType.Response) {
-                        // Upload success
-                        this.onUploadFinished.emit(event.body.fileName);
+                        // Upload success (server không trả JSON, dùng lại this.fileName)
+                        this.onUploadFinished.emit(this.fileName);
                     }
                 },
                 error: (err: any) => {

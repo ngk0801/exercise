@@ -1,0 +1,32 @@
+<h2>Fashion Detail</h2>
+<p style="color:red">{{errMessage}}</p>
+<div *ngIf="fashion">
+    <table border="1" cellpadding="10" style="border-collapse: collapse; margin-bottom: 20px;">
+        <tr>
+            <td><strong>ID</strong></td>
+            <td>{{fashion._id}}</td>
+        </tr>
+        <tr>
+            <td><strong>Style</strong></td>
+            <td>{{fashion.style}}</td>
+        </tr>
+        <tr>
+            <td><strong>Subject</strong></td>
+            <td>{{fashion.fashion_subject}}</td>
+        </tr>
+        <tr>
+            <td><strong>Detail</strong></td>
+            <td>{{fashion.fashion_detail}}</td>
+        </tr>
+        <tr>
+            <td><strong>Image</strong></td>
+            <td>
+                <img *ngIf="fashion.fashion_image" [src]="fashion.fashion_image"
+                    style="max-width:300px; max-height:300px; object-fit: contain;">
+                <span *ngIf="!fashion.fashion_image">No Image</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<button (click)="goBack()">Go Back to New Fashion</button>

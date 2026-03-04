@@ -1,0 +1,74 @@
+* {
+    font-family:
+        'Tahoma',
+
+        sans-serif;
+}
+
+
+.payment-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.momo-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.order-details {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.total {
+    font-weight: bold;
+    color: #e50914;
+    /* Example color, MoMo uses pink */
+    font-size: 1.4em;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.btn-momo {
+    background-color: #a50064;
+    /* MoMo typical pink/magenta */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-momo:hover {
+    background-color: #8a0050;
+}
+
+.btn-momo:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

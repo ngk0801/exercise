@@ -34,33 +34,33 @@ export class BookAPIService {
             responseType: "text"
         }
         return this._http.post<any>("http://127.0.0.1:3000/books", JSON.stringify(book), requestOptions).pipe(
-            map(res => JSON.parse(res) as IBook),
+            map(res => JSON.parse(res) as Array<IBook>),
             retry(3),
             catchError(this.handleError))
     }
 
-    putBook(book: IBook): Observable<any> {
-        const headers = new HttpHeaders().set("Content-Type", "application/json;charset=utf-8")
+    putBook(aBook: any): Observable<any> {
+        const headers = new HttpHeaders().set("Content-Type", "application/json;charset=utf-8");
         const requestOptions: Object = {
             headers: headers,
             responseType: "text"
-        }
-        return this._http.put<any>("http://127.0.0.1:3000/books", JSON.stringify(book), requestOptions).pipe(
-            map(res => JSON.parse(res) as IBook),
+        };
+        return this._http.put<any>("http://127.0.0.1:3000/books", JSON.stringify(aBook), requestOptions).pipe(
+            map(res => JSON.parse(res) as Array<IBook>),
             retry(3),
-            catchError(this.handleError))
+            catchError(this.handleError));
     }
 
-    deleteBook(id: string): Observable<any> {
-        const headers = new HttpHeaders().set("Content-Type", "application/json;charset=utf-8")
+    deleteBook(bookId: string): Observable<any> {
+        const headers = new HttpHeaders().set("Content-Type", "application/json;charset=utf-8");
         const requestOptions: Object = {
             headers: headers,
             responseType: "text"
-        }
-        return this._http.delete<any>("http://127.0.0.1:3000/books/" + id, requestOptions).pipe(
-            map(res => JSON.parse(res) as any),
+        };
+        return this._http.delete<any>("http://127.0.0.1:3000/books/" + bookId, requestOptions).pipe(
+            map(res => JSON.parse(res) as Array<IBook>),
             retry(3),
-            catchError(this.handleError))
+            catchError(this.handleError));
     }
 
     handleError(error: HttpErrorResponse) {

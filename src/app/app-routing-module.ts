@@ -9,6 +9,11 @@ export const routes: Routes = [
   { path: 'ex41', loadComponent: () => import('./book-detail/book-detail.component').then(m => m.BookDetailComponent) },
   { path: 'ex43', loadComponent: () => import('./book-new/book-new.component').then(m => m.BookNewComponent) },
   { path: 'ex45', loadComponent: () => import('./book-update/book-update.component').then(m => m.BookUpdateComponent) },
+  { path: 'ex47', loadComponent: () => import('./book-delete/book-delete.component').then(m => m.BookDeleteComponent) },
+  { path: 'fashion-new', loadComponent: () => import('./fashion-new/fashion-new').then(m => m.FashionNew) },
+  { path: 'fashion-detail/:id', loadComponent: () => import('./fashion-detail/fashion-detail').then(m => m.FashionDetail) },
+  { path: 'ex53', loadComponent: () => import('./ex53/ex53').then(m => m.Ex53) },
+  { path: 'ex-momo', loadComponent: () => import('./ex-momo/ex-momo').then(m => m.ExMomoComponent) },
   { path: '', redirectTo: '/list-books', pathMatch: 'full' },
 ];
 

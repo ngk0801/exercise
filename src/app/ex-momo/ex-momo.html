@@ -1,0 +1,30 @@
+<div class="payment-container">
+    <img src="/assets/avatars/MOMO-Logo-App.png" alt="MoMo Logo" class="momo-logo" />
+    <h2>Checkout</h2>
+
+    <div class="order-details">
+        <div class="order-row">
+            <span>Tên sản phẩm</span>
+            <span>Sách Lập Trình Angular</span>
+        </div>
+        <div class="order-row">
+            <span>Số lượng</span>
+            <span>1</span>
+        </div>
+        <div class="order-row">
+            <span>Đơn giá</span>
+            <span>50,000 VND</span>
+        </div>
+        <div class="order-row total">
+            <span>Tổng thành tiền</span>
+            <span>50,000 VND</span>
+        </div>
+    </div>
+
+    <button class="btn-momo" [disabled]="loading" (click)="payWithMoMo()">
+        <span *ngIf="loading">Đang xử lý...</span>
+        <span *ngIf="!loading">Thanh toán với MoMo</span>
+    </button>
+
+    <p *ngIf="error" style="color: red; margin-top: 15px;">{{ error }}</p>
+</div>

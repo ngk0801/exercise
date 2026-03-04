@@ -25,18 +25,24 @@ export class Ex50Component {
     }
 
     getImageUrl(image: string): string {
-        if (!image) return 'assets/book_images/default.jpg';
+        // Nếu không có ảnh, dùng ảnh mặc định placeholder
+        if (!image) return 'https://placehold.co/50x50?text=No+Image';
         const defaultImages = ['b1.jpg', 'b2.jpg', 'b3.jpg', 'b4.jpg', 'b5.jpg'];
 
         if (defaultImages.includes(image)) {
             return 'assets/book_images/' + image;
         } else {
-            return 'http://127.0.0.1:3000/image/' + image;
+            // Ảnh upload: bám sát tài liệu, lấy từ server (port 3000)
+            return 'http://localhost:3000/image/' + image;
         }
     }
 
     handleImageError(event: any) {
-        event.target.src = 'assets/book_images/default.jpg';
+        // Tránh infinite loop nếu bản thân ảnh placeholder cũng lỗi
+        const fallbackUrl = 'https://placehold.co/50x50?text=No+Image';
+        if (event.target.src !== fallbackUrl) {
+            event.target.src = fallbackUrl;
+        }
     }
 
     loadBooks() {
